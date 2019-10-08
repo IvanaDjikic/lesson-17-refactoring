@@ -1,4 +1,5 @@
 package exercises.ella;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -28,7 +29,7 @@ public class SideBar extends JPanel implements ActionListener, KeyListener {
 	JLabel earthName = new JLabel("earth");
 	JLabel cactusName = new JLabel("cactus");
 	JLabel timeName = new JLabel("Time: 0");
-		
+
 	int foundMeX = 76;
 	int foundMeWidth = 275;
 	int foundMeHeight = 75;
@@ -44,72 +45,46 @@ public class SideBar extends JPanel implements ActionListener, KeyListener {
 	int currentBar = BAR1;
 
 	SideBar() {
-		setPreferredSize(new Dimension(285, 1000));
+		setPreferredSize(new Dimension(285, 700));
 		// bar.setBounds(1800, 900, 500, 500);
 		add(barTitle);
 		barTitle.setFont(new Font("Serif", Font.PLAIN, 45));
 		setLayout(null);
 		barTitle.setBounds(84, 20, 200, 100);
-		objectNames();
+		placingObjectNames();
 		setOpaque(true);
 		setBackground(Color.PINK);
 		repaint();
 
 	}
 
-	void objectNames() {
+	private void placeButton(JLabel buttonName, int xPos, int yPos, int width) {
+		add(buttonName);
+		buttonName.setFont(new Font("Serif", Font.PLAIN, 30));
+		buttonName.setBounds(xPos, yPos, width, 75);
+	}
 
-		
-		add(snakeName);
-		snakeName.setFont(new Font("Serif", Font.PLAIN, 30));
-		snakeName.setBounds(102, findMeY, 100, 75);
-		add(ringName);
-		ringName.setFont(new Font("Serif", Font.PLAIN, 30));
-		ringName.setBounds(113, findMeY2, 100, 75);
-		add(backpackName);
-		backpackName.setFont(new Font("Serif", Font.PLAIN, 30));
-		backpackName.setBounds(83, findMeY3, 275, 75);
-		add(sparkleName);
-		sparkleName.setFont(new Font("Serif", Font.PLAIN, 30));
-		sparkleName.setBounds(90, findMeY4, 250, 75);
-		add(pawprintName);
-		pawprintName.setFont(new Font("Serif", Font.PLAIN, 30));
-		pawprintName.setBounds(83, findMeY5, 275, 75);
-		add(diamondName);
-		diamondName.setFont(new Font("Serif", Font.PLAIN, 30));
-		diamondName.setBounds(87, findMeY6, 250, 75);
-		add(balloonName);
-		balloonName.setFont(new Font("Serif", Font.PLAIN, 30));
-		balloonName.setBounds(95, findMeY7, 250, 75);
-		add(timeName);
-		timeName.setFont(new Font("Serif", Font.PLAIN, 30));
-		timeName.setBounds(95, 850, 250, 75);
+	void placingObjectNames() {
+
+		placeButton(snakeName, 102, findMeY, 100);
+		placeButton(ringName, 113, findMeY2, 100);
+		placeButton(backpackName, 83, findMeY3, 275);
+		placeButton(sparkleName, 90, findMeY4, 250);
+		placeButton(pawprintName, 83, findMeY5, 275);
+		placeButton(diamondName, 87, findMeY6, 250);
+		placeButton(balloonName, 95, findMeY7, 250);
+		placeButton(timeName, 95, 850, 250);
 
 	}
 
 	void objectNamesLevelTwo() {
-
-		add(appleName);
-		appleName.setFont(new Font("Serif", Font.PLAIN, 30));
-		appleName.setBounds(102, findMeY, 100, 75);
-		add(bowName);
-		bowName.setFont(new Font("Serif", Font.PLAIN, 30));
-		bowName.setBounds(109, findMeY2, 90, 75);
-		add(roseName);
-		roseName.setFont(new Font("Serif", Font.PLAIN, 30));
-		roseName.setBounds(110, findMeY3, 100, 75);
-		add(cloudName);
-		cloudName.setFont(new Font("Serif", Font.PLAIN, 30));
-		cloudName.setBounds(101, findMeY4, 100, 75);
-		add(chickenName);
-		chickenName.setFont(new Font("Serif", Font.PLAIN, 30));
-		chickenName.setBounds(92, findMeY5, 250, 75);
-		add(earthName);
-		earthName.setFont(new Font("Serif", Font.PLAIN, 30));
-		earthName.setBounds(101, findMeY6, 100, 75);
-		add(cactusName);
-		cactusName.setFont(new Font("Serif", Font.PLAIN, 30));
-		cactusName.setBounds(101, findMeY7, 100, 75);
+		placeButton(appleName, 102, findMeY, 100);
+		placeButton(bowName, 109, findMeY2, 90);
+		placeButton(roseName, 110, findMeY3, 100);
+		placeButton(cloudName, 101, findMeY4, 100);
+		placeButton(chickenName, 92, findMeY5, 250);
+		placeButton(earthName, 101, findMeY6, 100);
+		placeButton(cactusName, 101, findMeY7, 100);
 
 	}
 
@@ -196,27 +171,29 @@ public class SideBar extends JPanel implements ActionListener, KeyListener {
 		cloudName.setVisible(false);
 
 	}
-	
-	void foundChicken() {
-		
-		chickenName.setVisible(false);
-		
-	}
-	void foundEarth() {
-		
-		earthName.setVisible(false);
-		
-	}
-	void foundCactus() {
-		
-		cactusName.setVisible(false);
-		
-	}
-	void showTime(int time) {
-		
 
-	timeName.setText("Time: " + time);
-		
+	void foundChicken() {
+
+		chickenName.setVisible(false);
+
+	}
+
+	void foundEarth() {
+
+		earthName.setVisible(false);
+
+	}
+
+	void foundCactus() {
+
+		cactusName.setVisible(false);
+
+	}
+
+	void showTime(int time) {
+
+		timeName.setText("Time: " + time);
+
 	}
 
 	@Override
